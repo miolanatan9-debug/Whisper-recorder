@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#121212"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Whisper Recorder"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Transcricao e voz offline"
+        android:textSize="12sp"
+        android:textColor="#888888"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Status -->
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Iniciando..."
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:padding="10dp"
+        android:background="#1E1E1E"
+        android:layout_marginBottom="6dp"
+        android:accessibilityLiveRegion="polite"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/tvProgresso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#AAAAAA"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginBottom="6dp"/>
+
+    <!-- Switch TTS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#1E1E1E"
+        android:padding="10dp"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ler transcrição automaticamente"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"/>
+
+        <Switch
+            android:id="@+id/switchTTS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:contentDescription="Ativar leitura automatica"/>
+
+    </LinearLayout>
+
+    <!-- Linha 1: Gravar + Importar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="6dp">
+
+        <Button
+            android:id="@+id/btnGravar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Iniciar Gravacao"
+            android:textSize="13sp"
+            android:backgroundTint="#C62828"
+            android:textColor="#FFFFFF"
+            android:enabled="false"
+            android:layout_marginEnd="4dp"
+            android:contentDescription="Iniciar ou parar gravacao pelo microfone"/>
+
+        <Button
+            android:id="@+id/btnImportar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Importar Audio"
+            android:textSize="13sp"
+            android:backgroundTint="#1565C0"
+            android:textColor="#FFFFFF"
+            android:enabled="false"
+            android:contentDescription="Importar arquivo de audio do celular"/>
+
+    </LinearLayout>
+
+    <!-- Linha 2: Ler + Limpar + Salvar TXT + Salvar MP3 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/btnFalar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ler"
+            android:textSize="11sp"
+            android:backgroundTint="#2E7D32"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="3dp"
+            android:contentDescription="Ler toda a transcricao em voz alta"/>
+
+        <Button
+            android:id="@+id/btnLimpar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Limpar"
+            android:textSize="11sp"
+            android:backgroundTint="#333333"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="3dp"
+            android:contentDescription="Limpar transcricao"/>
+
+        <Button
+            android:id="@+id/btnSalvarTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=".TXT"
+            android:textSize="11sp"
+            android:backgroundTint="#4527A0"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="3dp"
+            android:contentDescription="Salvar transcricao como arquivo de texto"/>
+
+        <Button
+            android:id="@+id/btnSalvarMp3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=".MP3"
+            android:textSize="11sp"
+            android:backgroundTint="#E65100"
+            android:textColor="#FFFFFF"
+            android:contentDescription="Salvar audio gerado pelo TTS como MP3"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Transcricao:"
+        android:textColor="#AAAAAA"
+        android:textSize="12sp"
+        android:layout_marginBottom="4dp"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#1A1A1A">
+
+        <TextView
+            android:id="@+id/tvTranscricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:padding="12dp"
+            android:lineSpacingExtra="4dp"
+            android:hint="O texto transcrito aparecera aqui..."
+            android:textColorHint="#555555"
+            android:accessibilityLiveRegion="polite"/>
+
+    </ScrollView>
+
+</LinearLayout>
